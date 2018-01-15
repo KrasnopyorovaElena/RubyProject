@@ -1,0 +1,13 @@
+<div class="row justify-content-center">
+  <div class="col-6">
+    <h1>New Task</h1>
+
+    <%= render 'form', task: @task %>
+
+    <% if params[:project_id] %>
+      <%= link_to 'Back', project_path(params[:project_id]) %>
+    <% else %>
+      <%= link_to 'Back', tasks_path %>
+    <% end %>
+  </div>
+</div>

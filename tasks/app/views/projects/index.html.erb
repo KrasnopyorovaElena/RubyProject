@@ -1,0 +1,16 @@
+<h1>Projects</h1>
+
+<div class="list-group">
+  <li class="list-group-item d-flex justify-content-between">
+    <div class="btn-group">
+      <%= link_to 'All Projects', projects_path, class: ('btn btn-sm btn-secondary' + (params[:filter] ? '' : ' active')) %>
+      <%= link_to 'My Projects', projects_path(filter: true), class: ('btn btn-sm btn-secondary' + (params[:filter] ? ' active' : '')) %>
+    </div>
+    <%= link_to 'New Project', new_project_path, class: 'btn btn-sm btn-primary' %>
+  </li>
+  <% @projects.each do |project| %>
+    <%= link_to project.name, project, class: 'list-group-item list-group-item-action' %>
+  <% end %>
+</div>
+
+<%= will_paginate @projects %>
